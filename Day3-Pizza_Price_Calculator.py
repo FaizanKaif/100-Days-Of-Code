@@ -12,15 +12,21 @@ elif (size == "M"):
     pizza_price = 20
 elif (size == "L"):
     pizza_price = 25
+else:
+    print("Wrong Inputs")
 
 if (pepperoni == "Y"):
     pizza_price += 3
 elif (pepperoni == "N"):
     pizza_price += 0
+else:
+    print("Wrong Inputs")
 
 if (extra_cheese == "Y"):
     pizza_price += 5
 elif (extra_cheese == "N"):
     pizza_price += 0
+else:
+    print("Wrong Inputs")
 
 print(pizza_price)
