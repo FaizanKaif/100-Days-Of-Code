@@ -1,62 +1,103 @@
 import random
 
-rock = '''
-    _______
----'   ____)
-      (_____)
-      (_____)
-      (____)
----.__(___)
-'''
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
 
-paper = '''
-    _______
----'   ____)____
-          ______)
-          _______)
-         _______)
----.__________)
-'''
+logo = ''' 
+ _                                             
+| |                                            
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
+                    __/ |                      
+                   |___/    '''
 
-scissors = '''
-    _______
----'   ____)____
-          ______)
-       __________)
-      (____)
----.__(___)
-'''
+print(logo)
+words = ["apple", "oranges", "banana"]
 
-player = input("rock, paper or scissor\nrock")
-print (player)
+chosen_word = random.choice(words)
+print (chosen_word)
 
-computer = [rock,paper,scissors]
-abc = (random.choice(computer))
-print(abc)
+placeholder = ""
+length_word = len(chosen_word)
 
-#if player = rock
-if player == rock:
-    if abc == scissors:
-        print ("Its a win!! You Win")
-    elif abc == paper:
-        print ("You Lose")
-    elif abc == rock:
-        print ("Its a  draw")
-    else:
-        print ("Its a  draw")
+for z in range(length_word) :
+    placeholder += "_"
+print(placeholder)
 
-if player == paper:
-    if abc == rock:
-        print ("Its a win!! You Win")
-    elif abc == scissors:
-        print ("You Lose")
-    elif abc == paper:
-        print ("Its a  draw")
+game_over = False
+correct_letters = []
+while not game_over:
+    alphabet = input("whats your letter\n").lower()
+    display = ""
 
-if player == scissors:
-    if abc == paper:
-        print ("Its a win!! You Win")
-    elif abc == rock:
-        print ("You Lose")
-    elif abc == scissors:
-        print ("Its a  draw")
+    for letter in chosen_word:
+        if letter == alphabet:
+            display += letter
+            correct_letters.append(alphabet)
+        elif letter in correct_letters:
+            display += letter
+        else:
+            display += "_"
+
+    print(display)
+
+    if "_" not in display:
+        game_over = True
+        print("You Win")
+
